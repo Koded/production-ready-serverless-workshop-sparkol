@@ -67,7 +67,7 @@ const response = {
 
 3. Modify the `serverless.yml` file, under `functions`, so that the definition for the `hello` function looks like this:
 
-```json
+```yml
 hello:
     handler: handler.hello
     events:
@@ -192,9 +192,9 @@ The Serverless framework enforces a naming convention, but you can override the 
 <details>
 <summary><b>Changing the versioning behaviour</b></summary><p>
 
-By default, the Serverless framework would publish a new version of your function with every deployment. But, you can customize this behaviour too. 
+By default, the Serverless framework would publish a new version of your function with every deployment. But, you can customize this behaviour too.
 
-> _Pro tip:_ For non-production environments, where we're not concerned with rollbacks it's best to disable this default behaviour. Lambda has a default regional limit (**hard limit**) of 75GB of deployment artifacts. Which is why you should disable this behaviour, otherwise you'll likely reach the limit, unless you implement a mechanism for periodically cleaning up old versions.
+> _Pro tip:_ For non-production environments, where we're not concerned with rollbacks it's best to disable this default behaviour. Lambda has a default regional limit (**soft limit**) of 75GB of deployment artifacts. Which is why you should disable this behaviour, otherwise you'll likely reach the limit, unless you implement a mechanism for periodically cleaning up old versions.
 
 1. Go to the Lambda console to see what's the latest version number for the functions you have been deploying and updating.
 

@@ -158,7 +158,7 @@ get-index:
         path: /
         method: get
   environment:
-    restaurants_api: 
+    restaurants_api:
       Fn::Join:
         - ''
         - - "https://"
@@ -199,7 +199,7 @@ function loadHtml () {
 const getRestaurants = async () => {
   const url = URL.parse(restaurantsApiRoot)
   const opts = {
-    host: url.hostname, 
+    host: url.hostname,
     path: url.pathname
   }
 
@@ -218,11 +218,11 @@ module.exports.handler = async (event, context) => {
   const template = loadHtml()
   const restaurants = await getRestaurants()
   const dayOfWeek = days[new Date().getDay()]
-  const view = { 
+  const view = {
     awsRegion,
     cognitoUserPoolId,
     cognitoClientId,
-    dayOfWeek, 
+    dayOfWeek,
     restaurants,
     searchUrl: `${restaurantsApiRoot}/search`
   }
@@ -267,7 +267,7 @@ module.exports.handler = async (event, context) => {
         bottom: 0px;
         top: 0px;
         left: 0;
-        position: absolute;        
+        position: absolute;
       }
       .restaurantsDiv {
         background-color: #ffffff;
@@ -284,7 +284,7 @@ module.exports.handler = async (event, context) => {
       }
       .column-container {
         padding: 0;
-        margin: 0;        
+        margin: 0;
         list-style: none;
         display: flex;
         flex-flow: column;
@@ -357,11 +357,11 @@ module.exports.handler = async (event, context) => {
         font-family: Arial, Helvetica, sans-serif;
         font-size: 18px;
       }
-      
-      fieldset { 
-        padding:0; 
-        border:0; 
-        margin-top:25px; 
+
+      fieldset {
+        padding:0;
+        border:0;
+        margin-top:25px;
       }
 
     </style>
@@ -395,14 +395,14 @@ module.exports.handler = async (event, context) => {
         AWS.config.region = AWS_REGION;
         AWSCognito.config.region = AWS_REGION;
 
-        var data = { 
-          UserPoolId : COGNITO_USER_POOL_ID, 
+        var data = {
+          UserPoolId : COGNITO_USER_POOL_ID,
           ClientId : CLIENT_ID
         };
         userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(data);
         cognitoUser = userPool.getCurrentUser();
 
-        if (cognitoUser != null) {          
+        if (cognitoUser != null) {
           cognitoUser.getSession(function(err, session) {
             if (err) {
                 alert(err);
@@ -432,13 +432,13 @@ module.exports.handler = async (event, context) => {
         var email = $("#email")[0].value;
 
         var attributeList = [
-          new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute({ 
+          new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute({
             Name : 'email', Value : email
           }),
-          new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute({ 
+          new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute({
             Name : 'given_name', Value : firstName
           }),
-          new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute({ 
+          new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute({
             Name : 'family_name', Value : lastName
           }),
         ];
@@ -521,7 +521,7 @@ module.exports.handler = async (event, context) => {
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.setRequestHeader("Authorization", idToken);
         xhr.send(JSON.stringify({ theme }));
-        
+
         xhr.onreadystatechange = function (e) {
           if (xhr.readyState === 4 && xhr.status === 200) {
             var restaurants = JSON.parse(xhr.responseText);
@@ -566,7 +566,7 @@ module.exports.handler = async (event, context) => {
           event.preventDefault();
           addUser();
         });
-        
+
         $("#register").on("click", function() {
           regDialog.dialog("open");
         });
@@ -666,7 +666,7 @@ module.exports.handler = async (event, context) => {
       </ul>
     </div>
 
-    <div id="reg-dialog-form" title="Register">       
+    <div id="reg-dialog-form" title="Register">
       <form>
         <fieldset>
           <label for="first-name">First Name</label>
@@ -701,7 +701,7 @@ module.exports.handler = async (event, context) => {
 
     <div id="sign-in-form" title="Sign in">
       <form>
-          <fieldset>            
+          <fieldset>
             <label for="sign-in-username">Username</label>
             <input type="text" id="sign-in-username" class="text ui-widget-content ui-corner-all">
             <label for="sign-in-password">Password</label>

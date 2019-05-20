@@ -299,7 +299,7 @@ This adds the `dynamodb:scan` permission to the Lambda execution role.
 <details>
 <summary><b>Add a DynamoDB table in the serverless.yml</b></summary><p>
 
-1. Add DynamoDB table to `serverless.yml`
+1. Add DynamoDB table to `serverless.yml`. **Don't forget to change the table name to include your name**.
 
 ```yml
 resources:
@@ -493,7 +493,7 @@ dynamodb.batchWrite(req).promise().then(() => console.log("all done"))
       }
     </style>
 
-    <script>      
+    <script>
     </script>
   </head>
 
@@ -602,7 +602,7 @@ get-index:
         path: /
         method: get
   environment:
-    restaurants_api: 
+    restaurants_api:
       Fn::Join:
         - ''
         - - "https://"

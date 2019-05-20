@@ -1,6 +1,6 @@
 # Module 6: API Gateway best practices
 
-1. enable caching for production stage
+1. caching (at either CloudFront level, or in API Gateway)
 
 2. review default throttling limits
 

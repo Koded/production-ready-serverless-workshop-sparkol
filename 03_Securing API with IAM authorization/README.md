@@ -89,7 +89,7 @@ function loadHtml () {
 const getRestaurants = async () => {
   const url = URL.parse(restaurantsApiRoot)
   const opts = {
-    host: url.hostname, 
+    host: url.hostname,
     path: url.pathname
   }
 

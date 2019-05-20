@@ -103,7 +103,7 @@ describe(`When we invoke the GET / endpoint`, () => {
 ```json
 "scripts": {
   "sls": "serverless",
-  "test": "./node_modules/.bin/mocha tests/test_cases --reporter spec"
+  "test": "mocha tests/test_cases --reporter spec"
 }
 ```
 
